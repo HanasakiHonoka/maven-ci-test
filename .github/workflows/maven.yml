@@ -34,4 +34,5 @@ jobs:
       with:
        artifacts: "target/*.jar"
        tag: "res"
+       name: "second"
        token: ${{ secrets.GITHUB_TOKEN }}
