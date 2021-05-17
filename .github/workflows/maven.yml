@@ -37,15 +37,11 @@ jobs:
        name: "three"
        token: ${{ secrets.GITHUB_TOKEN }}
        allowUpdates: true
-
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - name: jar reload
-        uses: appleboy/ssh-action@master
-        with:
-          host: 106.54.68.249
-          username: root
-          password: ${{ secrets.PASSWORD }}
-          port: 22
-          script: /home/mvnci/start.sh
+    - name: jar reload
+      uses: appleboy/ssh-action@master
+      with:
+        host: 106.54.68.249
+        username: root
+        password: ${{ secrets.PASSWORD }}
+        port: 22
+        script: /home/mvnci/start.sh
