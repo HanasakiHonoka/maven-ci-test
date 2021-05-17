@@ -44,4 +44,6 @@ jobs:
         username: root
         password: ${{ secrets.PASSWORD }}
         port: 22
-        script: /home/mvnci/start.sh
+        script: |
+          ps -ef|grep maven-ci-test.jar|grep java|awk '{print $2}'|xargs kill -9
+          nohup java -jar maven-ci-test.jar >/dev/null &
